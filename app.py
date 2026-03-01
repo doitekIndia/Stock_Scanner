@@ -20,7 +20,7 @@ def get_db_connection():
             user=st.secrets["oracle"]["user"],
             password=st.secrets["oracle"]["password"],
             dsn=st.secrets["oracle"]["dsn"]
-            # No config_dir / wallet_location / wallet_password
+            # No config_dir, wallet_location, wallet_password — TLS mode only
         )
         return conn
     except Exception as e:
