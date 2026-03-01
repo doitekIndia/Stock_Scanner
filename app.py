@@ -14,16 +14,13 @@ st.set_page_config(layout="wide", page_title="NSE Fib Buy Zone Scanner")
 # ORACLE CONNECTION
 # ────────────────────────────────────────────────
 @st.cache_resource
-@st.cache_resource
 def get_db_connection():
     try:
         conn = oracledb.connect(
             user=st.secrets["oracle"]["user"],
             password=st.secrets["oracle"]["password"],
-            dsn=st.secrets["oracle"]["dsn"],
-            config_dir=st.secrets["oracle"]["wallet_dir"],
-            wallet_location=st.secrets["oracle"]["wallet_dir"],
-            wallet_password=st.secrets["oracle"]["wallet_password"]
+            dsn=st.secrets["oracle"]["dsn"]
+            # No config_dir / wallet_location / wallet_password
         )
         return conn
     except Exception as e:
